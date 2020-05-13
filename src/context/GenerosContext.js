@@ -16,7 +16,7 @@ const GenerosProvider = (props) =>{
             const url ='https://rawg-video-games-database.p.rapidapi.com/genres'
             const res = await axios.get(url,{headers})
             setGeneros(res.data.results)
-            console.log(res.data.results);
+            //console.log(res.data.results);
         }
         getGeneros()
     },[])

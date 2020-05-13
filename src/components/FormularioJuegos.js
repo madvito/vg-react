@@ -19,9 +19,7 @@ const FormularioJuegos = () =>{
             ...busqueda,
             [e.target.name] : e.target.value
         })
-        // setBusqueda(
-        //     e.target.value
-        // )
+        
     }
 
     const getGeneros =()=>{

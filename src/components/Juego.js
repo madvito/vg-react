@@ -4,20 +4,7 @@ import {DetalleContext} from '../context/DetalleContext'
 
 //const Juego = ({name,pplatforms,genres})=>{
 const Juego = ({id,name,img})=>{
-    // let plats=[]
-    // pplatforms.map(plat=>{
-    //     plats.push(
-    //     <li>{plat.name}</li>
-    //     )
-    // })
-    // const mostrarPlataformas=(pplatforms)=>{
-    //     let plats=[]
-    //     for (let i=0;i<pplatforms.length;i++){
-    //         plats.push(
-    //         <li>{pplatforms[i]}</li>
-    //         )
-    //     }
-    // }
+
     const {setId}= useContext(DetalleContext)
     const url=`/game/${id}`
     return(

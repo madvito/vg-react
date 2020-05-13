@@ -8,7 +8,6 @@ const ListaJuegos = () =>{
     return(
         <div className="m-2 row mt-5">
             {juegos.map(juego=>{
-                //return <Juego key={juego.id} name={juego.name} pplatforms={juego.parent_platforms} genres={juego.genres} />
                 return <Juego key={juego.id} id={juego.id} name={juego.name} img={juego.short_screenshots[0].image} />
             })}
         </div>
