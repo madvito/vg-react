@@ -40,7 +40,7 @@ const InfoDetalle = ({id})=>{
                 </div>
                 
                 <div className="row h-100 p-5">
-                    <div className="col-4 h-100">
+                    <div className="col-sm-4 h-100">
                         <h3>Desarrollado por</h3>
                         <ul>
                             {mostrarDevs(developers)}
@@ -58,7 +58,7 @@ const InfoDetalle = ({id})=>{
                             {mostrarPlataforma(platforms)}
                         </ul>
                     </div>
-                    <div className="col-8 h-100 mh-100">
+                    <div className="col-sm-8 h-100 mh-100">
                         <h3>Descripción</h3>
                         <p><strong>{description_raw}</strong></p>
                     </div>
