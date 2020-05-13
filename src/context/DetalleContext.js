@@ -36,7 +36,7 @@ const DetalleProvider = (props) =>{
     },[id])
 
     return(
-        <DetalleContext.Provider value={{setId,detalle}}>
+        <DetalleContext.Provider value={{setId,detalle,setDetalle}}>
             {props.children}
         </DetalleContext.Provider>
     )

@@ -11,6 +11,8 @@
 # production
 /build
 
+/src/components/DetalleJuego.js
+
 # misc
 .DS_Store
 .env.local

@@ -8,18 +8,21 @@ export const JuegosContext = createContext();
 const JuegosProvider =(props)=>{
     
     const [juegos,setJuegos] = useState([]);
-    const [busquedaJuegos,setBusquedaJuegos] = useState('');
+    const [busquedaJuegos,setBusquedaJuegos] = useState({
+        nombre:'',
+        genero:''
+    });
     const [consultar,setConsultar] = useState(false);
 
     const headers= {
         "x-rapidapi-host" : "rawg-video-games-database.p.rapidapi.com",
         "x-rapidapi-key" : "8250b51985msh32f0d613a8aaf8dp1cafe8jsn9570a54fe333"
     }
-
+    const {nombre,genero} = busquedaJuegos
     useEffect(()=>{
-        if(!busquedaJuegos){
+        if(!nombre && !genero){
             const getJuegos = async()=>{
-                const url = 'https://rawg-video-games-database.p.rapidapi.com/games?page_size=12';
+                let url = 'https://rawg-video-games-database.p.rapidapi.com/games?page_size=12';
                 const res = await axios.get(url,{headers});
                 setJuegos(res.data.results);
                 //console.log(res.data.results);
@@ -30,7 +33,13 @@ const JuegosProvider =(props)=>{
     useEffect(()=>{
         if (consultar){
             const getJuegos = async()=>{
-                const url = `https://rawg-video-games-database.p.rapidapi.com/games?search=${busquedaJuegos}&page_size=12`;
+                let url = `https://rawg-video-games-database.p.rapidapi.com/games?page_size=12`;
+                if (nombre){
+                    url+=`&search=${nombre}`
+                }
+                if (genero){
+                    url+=`&genres=${genero}`
+                }
                 const res = await axios.get(url,{headers});
                 setJuegos(res.data.results);
                 console.log('juegosContext',res.data.results);

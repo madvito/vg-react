@@ -1,5 +1,5 @@
 import React,{useContext} from 'react'
-import{Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {DetalleContext} from '../context/DetalleContext'
 
 //const Juego = ({name,pplatforms,genres})=>{

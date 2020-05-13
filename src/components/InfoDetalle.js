@@ -1,11 +1,18 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect} from 'react'
 import {DetalleContext} from '../context/DetalleContext'
 
-const InfoDetalle = ()=>{
-    const {detalle} = useContext(DetalleContext)
+const InfoDetalle = ({id})=>{
+    const {detalle,setId} = useContext(DetalleContext)
     const {name,genres,description_raw,platforms,developers,publishers,background_image} = detalle
     
-    console.log('genres',genres);
+    // useEffect(()=>{
+    //     const validaId =()=>{
+    //         if(!detalle){
+    //             setId(id)
+    //         }
+    //     }
+    //     validaId()
+    // },[id])
     
    
     const mostrarGenero=(genres)=>{

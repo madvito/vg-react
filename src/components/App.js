@@ -1,13 +1,14 @@
 import React from 'react';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import Header from './Header'
-import Index from './Index'
+
 import BuscaJuegos from './BuscaJuegos';
-import DetalleJuego from './DetalleJuego'
-import DetalleDeveloper from './DetalleDeveloper'
+
+import InfoDetalle from './InfoDetalle'
 import Error from './Error'
 
 import JuegosProvider from '../context/JuegosContext'
+import GenerosProvider from '../context/GenerosContext'
 
 
 import '../App.css';
@@ -16,19 +17,24 @@ import DetalleProvider from '../context/DetalleContext';
 
 function App() {
   return (
-    <JuegosProvider>
-      <Router>
-        <Header />
-        <Switch>
+    <GenerosProvider>
+      <JuegosProvider>
+        <Router>
           <DetalleProvider>
-            <Route exact path='/' component={BuscaJuegos} />
-            <Route exact path='/game/:id' component={DetalleJuego} />
+            <Header />
+            <Switch>
+              
+              <Route exact path='/' component={BuscaJuegos} />
+              {/* <Route exact path='/game/:id' component={DetalleJuego} /> */}
+              <Route exact path='/game/:id' component={InfoDetalle} />
+              
+              
+              <Route exact component={Error} />
+            </Switch>
           </DetalleProvider>
-          <Route exact path='/dev/:id' component={DetalleDeveloper} />
-          <Route exact path='/de' component={Error} />
-        </Switch>
-      </Router>
-    </JuegosProvider>
+        </Router>
+      </JuegosProvider>
+    </GenerosProvider>
   );
 }
 
